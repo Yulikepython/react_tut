@@ -23,3 +23,14 @@ body {
     padding-top: 20px;
     font-size:20px;
 }
+
+.todo-item{
+    display:flex;
+    justify-content: center;
+    border-bottom:tomato 1px solid;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0px 20px 0;
+    align-items: center;
+}

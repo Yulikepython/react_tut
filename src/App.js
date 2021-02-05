@@ -1,18 +1,19 @@
 import React from "react"
 
-import Header from "./components/Header"
-import Main from "./components/Main"
-import Footer from "./components/Footer"
+import ContactCard from "./components/ContactCard"
 
-function App(){
+
+function App() {
     return (
         <div>
-            <Header />
-            <Main />
-            <Footer />
+            <ContactCard 
+                name="Yu"
+                imgUrl="https://itc.tokyo"
+                phone="xxx-xxx-xxx1"
+                email="admin@itc.tokyo"
+            />
         </div>
     )
 }
-
 
 export default App
