@@ -1,19 +1,34 @@
 import React from "react"
 
-import ContactCard from "./components/ContactCard"
+import Joke from "./components/Joke"
 
-
-function App() {
+function App(){
     return (
         <div>
-            <ContactCard 
-                name="Yu"
-                imgUrl="https://itc.tokyo"
-                phone="xxx-xxx-xxx1"
-                email="admin@itc.tokyo"
+            <Joke
+            question="great?"
+            punchLine="puching!"
+            />
+            <Joke
+                question="good?"
+                
+            />
+            <Joke
+                question="good3?"
+                punchLine="chopping!"
+            />
+            <Joke
+                question="good4?"
+                
+            />
+            <Joke
+                question="good5?"
+                punchLine="trailing!"
             />
         </div>
+        
     )
 }
+
 
 export default App
