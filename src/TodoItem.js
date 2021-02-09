@@ -8,7 +8,7 @@ class TodoItem extends React.Component{
                 <input type="checkbox"
                 name="completed" 
                 checked={this.props.item.completed} 
-                onChange={(e)=> e.target.checked = !e.target.checked}/>
+                onChange={() => this.props.handler(this.props.item.id)}/>
                 <p>{this.props.item.text}</p>
             </div>
         )

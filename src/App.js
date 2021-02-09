@@ -1,31 +1,40 @@
 import React from "react"
 
+import TodoItem from "./TodoItem"
+import todosData from "./todosData.js"
 
-//try to make calcapp or something to use button on change
-class App extends React.Component{
-    constructor() {
+
+class App extends React.Component {
+    constructor(){
         super()
         this.state = {
-            x: 3,
-            y: 4,
+            todos: todosData,
+
         }
-        this.equistion = this.equistion.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    equistion(){
+    handleChange(id){
+        this.setState(prevState => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if(todo.id === id){
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
 
     }
 
     render() {
+        const todo = this.state.todos.map(item => <TodoItem key={item.id} item={item} handler={this.handleChange} />)
         return (
-            <div>
-                <button>Next</button>
-                <p></p>
-
-            </div>
+            <div className="main-box"> {todo} </div>
         )
     }
 }
-
 
 export default App
