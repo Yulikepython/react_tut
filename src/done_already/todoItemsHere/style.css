@@ -1,0 +1,17 @@
+.main-box{
+    text-align: center;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.todo-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: gray 1px solid;
+}
+
+.todo-box * {
+    margin-left:10px;
+}
