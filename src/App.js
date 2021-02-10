@@ -1,38 +1,32 @@
-import React from "react"
+import React, {Component} from "react"
 
-import TodoItem from "./TodoItem"
-import todosData from "./todosData.js"
-
-
-class App extends React.Component {
+class App extends Component{
     constructor(){
         super()
         this.state = {
-            todos: todosData,
-
+            isLoggedin: true
         }
-        this.handleChange = this.handleChange.bind(this)
+        this.btnHandler = this.btnHandler.bind(this)
     }
 
-    handleChange(id){
-        this.setState(prevState => {
-            const updatedTodos = prevState.todos.map(todo => {
-                if(todo.id === id){
-                    todo.completed = !todo.completed
-                }
-                return todo
-            })
-            return {
-                todos: updatedTodos
-            }
-        })
-
+    btnHandler(){
+        this.setState(prevState => ({
+            isLoggedin: !prevState.isLoggedin
+        }))
     }
 
-    render() {
-        const todo = this.state.todos.map(item => <TodoItem key={item.id} item={item} handler={this.handleChange} />)
+    render(){
         return (
-            <div className="main-box"> {todo} </div>
+            <div>
+                { this.state.isLoggedin ? 
+                    <h2>You are Logged in</h2> : 
+                    <h2>You are Logged out</h2>
+                }
+                { this.state.isLoggedin ? 
+                    <button onClick={this.btnHandler}>log out</button> : 
+                    <button onClick={this.btnHandler}>log in </button>
+                }
+            </div>
         )
     }
 }
