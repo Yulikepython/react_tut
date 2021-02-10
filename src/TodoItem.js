@@ -1,7 +1,16 @@
 import React from "react"
 
 class TodoItem extends React.Component{
-
+    constructor(props){
+        super()
+        this.state = {
+            completedStyle: {
+                fontStyle: "italic",
+                color: "gray",
+                textDecoration: "line-through"
+        }
+    }
+    }
     render(){
         return (
             <div className="todo-box">
@@ -9,7 +18,7 @@ class TodoItem extends React.Component{
                 name="completed" 
                 checked={this.props.item.completed} 
                 onChange={() => this.props.handler(this.props.item.id)}/>
-                <p>{this.props.item.text}</p>
+                <p style={this.props.item.completed ? this.state.completedStyle: null}>{this.props.item.text}</p>
             </div>
         )
     }

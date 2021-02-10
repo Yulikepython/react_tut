@@ -1,33 +1,43 @@
-import React, {Component} from "react"
+import React from "react"
 
-class App extends Component{
+class App extends React.Component{
     constructor(){
         super()
         this.state = {
-            isLoggedin: true
+            number: 0
         }
-        this.btnHandler = this.btnHandler.bind(this)
+        this.increaseBtn = this.increaseBtn.bind(this)
+        // this.decreaseBtn = this.decreaseBtn.bind(this)
     }
 
-    btnHandler(){
-        this.setState(prevState => ({
-            isLoggedin: !prevState.isLoggedin
-        }))
+   increaseBtn(){
+        this.setState((prevState)=>{
+            return (
+                {
+                    number: prevState.number + 1
+                }
+            )
+        })
     }
 
+    // decreaseBtn(){
+    //     this.setState((prevState)=>{
+    //         return (
+    //             {
+    //                 number: prevState.number - 1
+    //             }
+    //         )
+    //     })
+    // }
     render(){
         return (
             <div>
-                { this.state.isLoggedin ? 
-                    <h2>You are Logged in</h2> : 
-                    <h2>You are Logged out</h2>
-                }
-                { this.state.isLoggedin ? 
-                    <button onClick={this.btnHandler}>log out</button> : 
-                    <button onClick={this.btnHandler}>log in </button>
-                }
-            </div>
+            <h1 style={this.state.style}>ボタンを押すと数が増えるよ　→　 {this.state.number}</h1>
+            <button onClick={this.increaseBtn}>add 1</button>
+            {/* <button onClick={this.decreaseBtn}>subtract 1</button> */}
+        </div>
         )
+
     }
 }
 
