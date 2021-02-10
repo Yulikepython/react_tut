@@ -1,43 +1,38 @@
 import React from "react"
 
-class App extends React.Component{
+import TodoItem from "./TodoItem"
+import todosData from "./todosData.js"
+
+
+class App extends React.Component {
     constructor(){
         super()
         this.state = {
-            number: 0
+            todos: todosData,
         }
-        this.increaseBtn = this.increaseBtn.bind(this)
-        // this.decreaseBtn = this.decreaseBtn.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-   increaseBtn(){
-        this.setState((prevState)=>{
-            return (
-                {
-                    number: prevState.number + 1
+    handleChange(id){
+        this.setState(prevState => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if(todo.id === id){
+                    todo.completed = !todo.completed
                 }
-            )
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
         })
+
     }
 
-    // decreaseBtn(){
-    //     this.setState((prevState)=>{
-    //         return (
-    //             {
-    //                 number: prevState.number - 1
-    //             }
-    //         )
-    //     })
-    // }
-    render(){
+    render() {
+        const todo = this.state.todos.map(item => <TodoItem key={item.id} item={item} handler={this.handleChange} />)
         return (
-            <div>
-            <h1 style={this.state.style}>ボタンを押すと数が増えるよ　→　 {this.state.number}</h1>
-            <button onClick={this.increaseBtn}>add 1</button>
-            {/* <button onClick={this.decreaseBtn}>subtract 1</button> */}
-        </div>
+            <div className="main-box"> {todo} </div>
         )
-
     }
 }
 
