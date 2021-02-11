@@ -15,7 +15,7 @@ class App extends React.Component{
 
     render(){
         return (
-            <form onSubmit="handleSubmit">
+            <form>
                 <input type="text" placeholder="First Name" onChange={this.handleChange} />
                     <h1>{this.state.firstName}</h1>
             </form>
