@@ -12,7 +12,11 @@ class App extends React.Component{
     }
 
     handleChange(e) {
-        const {name, value} = e.targetff
+        const {name, value, type, checked} = e.target
+        type === "checkbox" ? 
+        this.setState({   
+            [name]: checked
+        }): 
         this.setState({
             [name]: value
             // [e.target.name]: e.target.value
@@ -36,9 +40,25 @@ class App extends React.Component{
                     placeholder="Last Name" 
                     onChange={this.handleChange} 
                 />
-                    <h1>{this.state.firstName} {this.state.lastName}</h1>
-                <textarea value={"this is text area"} />
-                <input type="checkbox" checked={this.state.isFriendly} />
+                <br />
+                <textarea 
+                    value={"this is text area"} 
+                    onChange={this.handleChange} 
+                />
+
+                <br />
+
+                <label>
+                    <input 
+                        name="isFriendly"
+                        type="checkbox" 
+                        checked={this.state.isFriendly} 
+                        onChange={this.handleChange}
+                    />is Friendly?
+                </label>
+                <h1>
+                    {this.state.firstName} {this.state.lastName}
+                </h1>
             </form>
         )
     }
