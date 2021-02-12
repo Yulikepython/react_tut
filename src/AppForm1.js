@@ -6,13 +6,12 @@ class App extends React.Component{
         this.state = {
             firstName: "",
             lastName: "",
-            isFriendly: true,
         }
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(e) {
-        const {name, value} = e.targetff
+        const {name, value} = e.target
         this.setState({
             [name]: value
             // [e.target.name]: e.target.value
@@ -37,8 +36,6 @@ class App extends React.Component{
                     onChange={this.handleChange} 
                 />
                     <h1>{this.state.firstName} {this.state.lastName}</h1>
-                <textarea value={"this is text area"} />
-                <input type="checkbox" checked={this.state.isFriendly} />
             </form>
         )
     }
