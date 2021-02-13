@@ -15,8 +15,9 @@ class App extends Component{
             egg: false, 
             fruits: false, 
         }
-        this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+       
     }
 
     handleChange(e){
@@ -27,21 +28,12 @@ class App extends Component{
         }): 
         this.setState({
             [name]: value
-            // [e.target.name]: e.target.value
         })
     }
 
     handleSubmit(e){
-        const wheat_s = this.state.wheat ? "Wheat, ": null
-        const egg_s = this.state.egg ? "Egg, ": null
-        const fruits_s = this.state.fruits ? "Fruits" : null
+        alert({this.state.firstName})
 
-        const displayText = "First name: " + {this.state.firstName} + "\n" + 
-        "Last name: " + {this.state.lastName} + "\n" + 
-        "Age: " + {this.state.age} + "\n" + 
-        "Gender: " + {this.state.gender} + "\n" + 
-        "Location:" + {this.state.location} + "\n" + 
-        "Dietary Restrictions:" + {this.state.lastName} + "\n" 
     }
     render(){
         return (
