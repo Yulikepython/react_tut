@@ -27,6 +27,7 @@ class App extends React.Component{
                     value={this.state.firstName}
                     placeholder="First Name" 
                     onChange={this.handleChange} 
+                    autoComplete="off"
                 />
                 <input 
                     type="text" 
@@ -34,6 +35,7 @@ class App extends React.Component{
                     value={this.state.lastName}
                     placeholder="Last Name" 
                     onChange={this.handleChange} 
+                    autoComplete="off"
                 />
                     <h1>{this.state.firstName} {this.state.lastName}</h1>
             </form>
