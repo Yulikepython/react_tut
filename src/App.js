@@ -1,15 +1,16 @@
-import React, {Component } from "react"
+import React, {Component} from "react"
 
-import MainGenerator from "./components/MainGenerator"
-import Header from "./components/Header"
+class App extends Component{
+    constructor(){
+        super()
+        this.state = {
 
-class App extends Component {
-    render() {
+        }
+    }
+
+    render(){
         return (
-            <div>
-                <Header />
-                <MainGenerator />
-            </div>
+            <div>almost last</div>
         )
     }
 }
